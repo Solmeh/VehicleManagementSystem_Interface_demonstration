@@ -1,0 +1,37 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border-radius: 1rem;
+}
+/* Navbar 深色系樣式 */
+.navbar {
+    /* 背景色：深灰色 */
+    background-color: #343a40; 
+}
+
+/* 品牌名稱文字顏色：白色 */
+.navbar-brand {
+    color: #ffffff !important;
+}
+
+/* 連結文字顏色：白色 */
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+/* 連結滑鼠移過時的文字顏色：淺灰色 */
+.navbar-nav .nav-link:hover {
+    color: #adb5bd !important;
+}
+
+/* 響應式導覽列切換按鈕的邊框顏色：白色 */
+.navbar-toggler {
+    border-color: #ffffff;
+}
+
+/* 響應式導覽列切換按鈕的圖示顏色：白色 */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}

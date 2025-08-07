@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主數據管理 - 車輛管理系統</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <script src="js/load-navbar.js"></script>
+    <div class="container-fluid mt-4">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" href="settings_master_data.html">主數據</a></li>
+            <li class="nav-item"><a class="nav-link" href="settings_parameters.html">系統參數</a></li>
+        </ul>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h2>主數據管理</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>車輛品牌</h4>
+                        <table class="table table-sm table-bordered">
+                            <thead><tr><th>品牌名稱</th><th>狀態</th><th>操作</th></tr></thead>
+                            <tbody>
+                                <tr><td>Toyota</td><td><span class="badge bg-success">啟用</span></td><td><button class="btn btn-sm btn-outline-secondary">編輯</button></td></tr>
+                                <tr><td>Honda</td><td><span class="badge bg-success">啟用</span></td><td><button class="btn btn-sm btn-outline-secondary">編輯</button></td></tr>
+                            </tbody>
+                        </table>
+                        <button class="btn btn-sm btn-primary">+ 新增品牌</button>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>燃料類型</h4>
+                        <table class="table table-sm table-bordered">
+                            <thead><tr><th>燃料類型</th><th>狀態</th><th>操作</th></tr></thead>
+                            <tbody>
+                                <tr><td>Petrol</td><td><span class="badge bg-success">啟用</span></td><td><button class="btn btn-sm btn-outline-secondary">編輯</button></td></tr>
+                                <tr><td>Diesel</td><td><span class="badge bg-success">啟用</span></td><td><button class="btn btn-sm btn-outline-secondary">編輯</button></td></tr>
+                            </tbody>
+                        </table>
+                        <button class="btn btn-sm btn-primary">+ 新增燃料類型</button>
+                    </div>
+                </div>
+                <!-- Add other master data sections here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

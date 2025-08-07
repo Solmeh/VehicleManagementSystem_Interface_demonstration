@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>庫存分析 - 車輛管理系統</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <script src="js/load-navbar.js"></script>
+
+    <div class="container-fluid mt-4">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" href="inventory_analysis.html">庫存分析</a></li>
+            <li class="nav-item"><a class="nav-link" href="inventory_suggestions.html">採購建議</a></li>
+        </ul>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h2>庫存分析報告</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>庫存概覽</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                總車輛數
+                                <span class="badge bg-dark rounded-pill">45</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                可供銷售
+                                <span class="badge bg-success rounded-pill">38</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                已預訂
+                                <span class="badge bg-warning rounded-pill">5</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                維護中
+                                <span class="badge bg-info rounded-pill">2</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4 class="mt-5">庫存老化分析</h4>
+                <table class="table table-bordered">
+                    <thead class="table-light">
+                        <tr><th>庫存天數</th><th>車輛數量</th><th>品牌分佈</th><th>估計損失</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0-30 天</td><td>15</td><td>Honda(5), Toyota(4), Perodua(6)</td><td>-</td></tr>
+                        <tr><td>31-60 天</td><td>12</td><td>Toyota(8), Honda(2), Proton(2)</td><td>-</td></tr>
+                        <tr><td class="text-warning">61-90 天</td><td>8</td><td>Perodua(3), Proton(3), Others(2)</td><td class="text-danger">RM 5,000</td></tr>
+                        <tr><td class="text-danger fw-bold">> 90 天</td><td>3</td><td>Proton(2), Mazda(1)</td><td class="text-danger fw-bold">RM 8,000</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系統參數 - 車輛管理系統</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <script src="js/load-navbar.js"></script>
+    <div class="container-fluid mt-4">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link" href="settings_master_data.html">主數據</a></li>
+            <li class="nav-item"><a class="nav-link active" href="settings_parameters.html">系統參數</a></li>
+        </ul>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h2>系統參數</h2>
+            </div>
+            <div class="card-body">
+                <form>
+                    <h4>業務設定</h4>
+                    <div class="mb-3">
+                        <label class="form-label">預設折扣率 (%)</label>
+                        <input type="number" class="form-control" value="5">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">庫存警告天數</label>
+                        <input type="number" class="form-control" value="90">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">逾期付款警告天數</label>
+                        <input type="number" class="form-control" value="30">
+                    </div>
+
+                    <h4 class="mt-4">通知設定</h4>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="newCustomerNotification" checked>
+                        <label class="form-check-label" for="newCustomerNotification">新客戶通知</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="paymentReminder" checked>
+                        <label class="form-check-label" for="paymentReminder">付款提醒</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="stockWarning">
+                        <label class="form-check-label" for="stockWarning">庫存警告</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="maintenanceReminder">
+                        <label class="form-check-label" for="maintenanceReminder">維護到期提醒</label>
+                    </div>
+
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary">儲存設定</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

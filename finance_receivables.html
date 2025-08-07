@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>應收帳款 - 車輛管理系統</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <script src="js/load-navbar.js"></script>
+    <div class="container-fluid mt-4">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" href="finance_receivables.html">應收帳款</a></li>
+            <li class="nav-item"><a class="nav-link" href="finance_loans.html">貸款狀態追蹤</a></li>
+        </ul>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                 <h2>應收帳款</h2>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-auto">
+                            <input type="text" class="form-control" placeholder="搜尋客戶...">
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-select">
+                                <option selected>按逾期天數篩選...</option>
+                                <option>0-30 天</option>
+                                <option>31-60 天</option>
+                                <option>> 60 天</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-success"><i class="bi bi-download"></i> 匯出報告</button>
+                </div>
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>客戶名稱</th>
+                                    <th>車輛</th>
+                                    <th>應收總額</th>
+                                    <th>已付金額</th>
+                                    <th>餘額</th>
+                                </tr>
+                                <tr>
+                                    <th><input type="text" class="form-control form-control-sm" placeholder="搜尋客戶"></th>
+                                    <th><input type="text" class="form-control form-control-sm" placeholder="搜尋車輛"></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mr. Tan</td>
+                                    <td>Honda Civic</td>
+                                    <td>RM 108,000.00</td>
+                                    <td>RM 50,000.00</td>
+                                    <td class="text-danger fw-bold">RM 58,000.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Ms. Lee</td>
+                                    <td>Perodua Myvi</td>
+                                    <td>RM 55,000.00</td>
+                                    <td>RM 55,000.00</td>
+                                    <td>RM 0.00</td>
+                                </tr>
+                                 <tr>
+                                    <td>Mr. Wong</td>
+                                    <td>Toyota Vios</td>
+                                    <td>RM 80,000.00</td>
+                                    <td>RM 20,000.00</td>
+                                    <td class="text-danger fw-bold">RM 60,000.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">逾期統計</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            30 天內到期
+                            <span class="badge bg-primary rounded-pill">RM 125,000</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            逾期 31-60 天
+                            <span class="badge bg-warning rounded-pill">RM 35,000</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            逾期 > 60 天
+                            <span class="badge bg-danger rounded-pill">RM 15,000</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

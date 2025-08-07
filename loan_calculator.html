@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>月付款計算器 - 車輛管理系統</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <script src="js/load-navbar.js"></script>
+
+    <div class="container-fluid mt-4">
+        <h2>月付款計算器</h2>
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <h5>選擇機車數據</h5>
+                    <div class="mb-3">
+                        <label for="motorcycleSelect" class="form-label">請選擇機車</label>
+                        <select class="form-select" id="motorcycleSelect">
+                            <option value="">-- 請選擇 --</option>
+                            <option value="60000">Honda Civic (RM 60,000)</option>
+                            <option value="75000">Toyota Vios (RM 75,000)</option>
+                        </select>
+                    </div>
+
+                    <h5>貸款資訊</h5>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="loanCompany" class="form-label">貸款公司</label>
+                            <input type="text" class="form-control" id="loanCompany">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="motorcyclePrice" class="form-label">機車售價 (RM)</label>
+                            <input type="number" class="form-control" id="motorcyclePrice" value="60000">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="downPayment" class="form-label">首付款 (RM)</label>
+                            <input type="number" class="form-control" id="downPayment" value="10000">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="annualRate" class="form-label">年利率 (%)</label>
+                            <input type="number" class="form-control" id="annualRate" value="3">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="loanTerm" class="form-label">貸款期數 (月)</label>
+                        <input type="number" class="form-control" id="loanTerm" value="60">
+                    </div>
+
+                    <button type="button" class="btn btn-primary" id="calculateBtn">計算月付款</button>
+                </form>
+
+                <h5 class="mt-4">計算結果</h5>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr><th>品牌</th><th>型號</th><th>售價 (RM)</th><th>貸款公司</th><th>年利率 (%)</th><th>期數 (月)</th><th>月付款</th></tr>
+                    </thead>
+                    <tbody id="resultsTableBody">
+                        <tr>
+                            <td>Honda</td>
+                            <td>Civic</td>
+                            <td>60,000</td>
+                            <td>Maybank</td>
+                            <td>3</td>
+                            <td>60</td>
+                            <td>960.00</td>
+                        </tr>
+                        <tr>
+                            <td>Toyota</td>
+                            <td>Vios</td>
+                            <td>75,000</td>
+                            <td>CIMB</td>
+                            <td>3.5</td>
+                            <td>72</td>
+                            <td>1150.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
