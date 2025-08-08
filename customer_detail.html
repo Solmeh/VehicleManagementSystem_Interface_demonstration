@@ -1,65 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>客戶詳情 - 車輛管理系統</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div id="navbar-placeholder"></div>
-    <script src="js/load-navbar.js"></script>
 
     <div class="container-fluid mt-4">
-        <h3>陳先生</h3>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">基本資訊</h5>
-                        <form>
-                            <div class="mb-3"><label>身份證號碼</label><input type="text" class="form-control" value="880808-08-8888"></div>
-                            <div class="mb-3"><label>電子郵件</label><input type="text" class="form-control" value="tan@email.com"></div>
-                            <div class="mb-3"><label>地址</label><textarea class="form-control"></textarea></div>
-                            <div class="mb-3"><label>種族</label><select class="form-select"><option>華人</option></select></div>
-                            <div class="mb-3"><label>潛在客戶來源</label><select class="form-select"><option>Facebook</option></select></div>
-                        </form>
+        <header class="mb-4">
+            <a href="customers.html" class="text-decoration-none mb-2 d-inline-block"><i class="bi bi-arrow-left-circle"></i> 返回客戶列表</a>
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="mb-0">客戶詳情</h2>
+                <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#addEditCustomerModal">
+                    <i class="bi bi-pencil-square me-2"></i>編輯客戶資料
+                </button>
+            </div>
+        </header>
+
+        <!-- 客戶核心資訊 -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h3 class="mb-1">Ahmad bin Abdullah</h3>
+                        <p class="text-muted mb-2">IC: 880101-10-1234</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <span><i class="bi bi-telephone-fill me-2"></i>012-3456789</span>
+                            <span><i class="bi bi-envelope-fill me-2"></i>ahmad.abdullah@email.com</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <span class="badge bg-success fs-6 me-2">活躍客戶</span>
+                        <span class="badge bg-info fs-6">來源: Facebook</span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card">
+        </div>
+
+        <!-- 標籤頁 -->
+        <ul class="nav nav-tabs nav-pills flex-nowrap" id="customerTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="sales-history-tab" data-bs-toggle="tab" data-bs-target="#sales-history" type="button">銷售歷史</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="maintenance-records-tab" data-bs-toggle="tab" data-bs-target="#maintenance-records" type="button">維修記錄</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="follow-ups-tab" data-bs-toggle="tab" data-bs-target="#follow-ups" type="button">跟進記錄</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="vehicles-tab" data-bs-toggle="tab" data-bs-target="#vehicles" type="button">關聯車輛</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="customerTabContent">
+            <!-- 銷售歷史 -->
+            <div class="tab-pane fade show active" id="sales-history" role="tabpanel">
+                <div class="card card-tab-content">
                     <div class="card-body">
-                        <h5 class="card-title">跟進記錄</h5>
-                        <table class="table table-sm">
-                            <thead><tr><th>日期</th><th>銷售人員</th><th>備註</th></tr></thead>
+                        <table class="table table-striped">
+                            <thead><tr><th>訂單號</th><th>日期</th><th>總金額 (RM)</th><th>狀態</th><th>操作</th></tr></thead>
                             <tbody>
-                                <tr><td>2024-08-01</td><td>David</td><td>客戶詢問 Civic，已發送報價。</td></tr>
-                                <tr><td>2024-08-04</td><td>David</td><td>已安排本週六看車。</td></tr>
+                                <tr>
+                                    <td><a href="sale_detail.html">SO-2024-0012</a></td>
+                                    <td>2024-05-20</td>
+                                    <td>125,000</td>
+                                    <td><span class="badge bg-success">已完成</span></td>
+                                    <td><a href="sale_detail.html" class="btn btn-sm btn-outline-info">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="sale_detail.html">SO-2022-0005</a></td>
+                                    <td>2022-01-15</td>
+                                    <td>88,000</td>
+                                    <td><span class="badge bg-success">已完成</span></td>
+                                    <td><a href="sale_detail.html" class="btn btn-sm btn-outline-info">查看</a></td>
+                                </tr>
                             </tbody>
                         </table>
-                        <button class="btn btn-primary btn-sm" id="addFollowUpBtn">+ 新增跟進</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 維修記錄 -->
+            <div class="tab-pane fade" id="maintenance-records" role="tabpanel">
+                 <div class="card card-tab-content">
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead><tr><th>維修單號</th><th>車牌</th><th>日期</th><th>服務類型</th><th>總費用 (RM)</th><th>狀態</th></tr></thead>
+                            <tbody>
+                                <tr><td>M-1020</td><td>WFG5678</td><td>2025-07-10</td><td>基本保養</td><td>350</td><td><span class="badge bg-success">已完成</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 跟進記錄 -->
+            <div class="tab-pane fade" id="follow-ups" role="tabpanel">
+                <div class="card card-tab-content">
+                    <div class="card-body">
+                        <button class="btn btn-primary mb-3"><i class="bi bi-plus-circle me-2"></i>新增跟進記錄</button>
+                        <ul class="timeline">
+                            <li>
+                                <div class="timeline-badge"><i class="bi bi-check"></i></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h5 class="timeline-title">完成銷售</h5>
+                                        <p><small class="text-muted"><i class="bi bi-person"></i> Siti | <i class="bi bi-calendar-event"></i> 2024-05-20</small></p>
+                                    </div>
+                                    <div class="timeline-body"><p>客戶已簽署所有文件並完成付款。</p></div>
+                                </div>
+                            </li>
+                             <li>
+                                <div class="timeline-badge primary"><i class="bi bi-telephone"></i></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h5 class="timeline-title">電話跟進</h5>
+                                        <p><small class="text-muted"><i class="bi bi-person"></i> Siti | <i class="bi bi-calendar-event"></i> 2024-05-15</small></p>
+                                    </div>
+                                    <div class="timeline-body"><p>提醒客戶貸款已批准，預約簽署文件時間。</p></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 關聯車輛 -->
+            <div class="tab-pane fade" id="vehicles" role="tabpanel">
+                <div class="card card-tab-content">
+                    <div class="card-body">
+                         <table class="table table-striped">
+                            <thead><tr><th>車牌號碼</th><th>品牌 & 型號</th><th>年份</th><th>購買日期</th><th>狀態</th></tr></thead>
+                            <tbody>
+                                <tr><td>WFG5678</td><td>Honda Civic FE</td><td>2022</td><td>2024-05-20</td><td><span class="badge bg-primary">現有</span></td></tr>
+                                <tr><td>BKA4321</td><td>Toyota Vios</td><td>2018</td><td>2022-01-15</td><td><span class="badge bg-secondary">已Trade-in</span></td></tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Add Follow-up Modal -->
-    <div class="modal fade" id="followUpModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header"><h5 class="modal-title">新增跟進</h5></div>
-                <div class="modal-body"><textarea class="form-control" rows="4" placeholder="在此輸入備註..."></textarea></div>
-                <div class="modal-footer"><button type="button" class="btn btn-primary">儲存</button></div>
-            </div>
-        </div>
+    <!-- 編輯客戶 Modal (與列表頁共用) -->
+    <div class="modal fade" id="addEditCustomerModal" tabindex="-1">
+        <!-- ... Modal content from customers.html ... -->
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/scripts.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/load-navbar.js"></script>
 </body>
 </html>

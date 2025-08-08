@@ -1,183 +1,645 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>銷售詳情 - 車輛管理系統</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>銷售訂單詳情 - 車輛管理系統</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div id="navbar-placeholder"></div>
-    <script src="js/load-navbar.js"></script>
-    <div class="container-fluid">
-        <a href="dashboard.html" class="navbar-brand">車輛管理</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="main-nav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" href="dashboard.html">儀表板</a></li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownVehicles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        車輛管理
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownVehicles">
-                        <li><a class="dropdown-item" href="vehicles.html">車輛清單</a></li>
-                        <li><a class="dropdown-item" href="#">新增車輛</a></li>
-                        <li><a class="dropdown-item" href="#">維護記錄</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSales" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        銷售管理
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownSales">
-                        <li><a class="dropdown-item" href="sales_records.html">銷售記錄</a></li>
-                        <li><a class="dropdown-item" href="sale_detail.html">新增銷售</a></li>
-                        <li><a class="dropdown-item" href="#">付款追蹤</a></li>
-                        <li><a class="dropdown-item" href="finance_loans.html">貸款狀態追蹤</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCustomers" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        客戶管理
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownCustomers">
-                        <li><a class="dropdown-item" href="customers.html">客戶清單</a></li>
-                        <li><a class="dropdown-item" href="customer_detail.html">新增客戶</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownFinancialReports" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        財務報告
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownFinancialReports">
-                        <li><a class="dropdown-item" href="report_sales.html">銷售報告</a></li>
-                        <li><a class="dropdown-item" href="report_profit.html">利潤分析</a></li>
-                        <li><a class="dropdown-item" href="finance_receivables.html">應收帳款</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownInventory" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        庫存與採購
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownInventory">
-                        <li><a class="dropdown-item" href="inventory_analysis.html">庫存概覽</a></li>
-                        <li><a class="dropdown-item" href="#">二手車採購記錄</a></li>
-                        <li><a class="dropdown-item" href="inventory_suggestions.html">採購建議</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSettings" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        系統設定
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownSettings">
-                        <li><a class="dropdown-item" href="users.html">用戶管理</a></li>
-                        <li><a class="dropdown-item" href="settings_master_data.html">主數據</a></li>
-                        <li><a class="dropdown-item" href="settings_parameters.html">系統參數</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item"><a href="index.html" class="btn btn-outline-light">登出</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
 
     <div class="container-fluid mt-4">
-        <h2>建立/編輯銷售</h2>
-        <div class="card">
-            <div class="card-body">
-                <form>
-                    <!-- Customer and Vehicle -->
-                    <h5>1. 客戶與車輛</h5>
-                    <hr>
-                    <div class="row mb-3">
-                        <div class="col-md-6"><label>客戶</label><input type="text" class="form-control" placeholder="搜尋陳先生"></div>
-                        <div class="col-md-6"><label>車輛</label><input type="text" class="form-control" placeholder="搜尋 Honda Civic"></div>
-                    </div>
+        <header class="mb-4">
+            <a href="sales_records.html" class="text-decoration-none mb-2 d-inline-block"><i class="bi bi-arrow-left-circle"></i> 返回銷售記錄</a>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h2 class="mb-0 d-inline-block">訂單 #SO-2025-0015</h2>
+                    <span class="badge bg-primary fs-6 ms-2">Processing</span>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-success btn-lg"><i class="bi bi-save me-2"></i>儲存訂單</button>
+                    <button class="btn btn-danger btn-lg"><i class="bi bi-x-circle me-2"></i>取消訂單</button>
+                </div>
+            </div>
+        </header>
 
-                    <!-- Pricing -->
-                    <h5 class="mt-4">2. 定價</h5>
-                    <hr>
-                    <div class="row mb-3">
-                        <div class="col-md-4"><label>車輛價格</label><input type="text" class="form-control" value="110,000.00" readonly></div>
-                        <div class="col-md-4"><label>折扣</label><input type="text" class="form-control" value="2,000.00"></div>
-                        <div class="col-md-4"><label>最終價格</label><input type="text" class="form-control" value="108,000.00" readonly></div>
+        <div class="row g-4">
+            <!-- 左側主要內容 -->
+            <div class="col-lg-8">
+                <!-- 客戶與銷售資訊 -->
+                <div class="card mb-4">
+                    <div class="card-header">客戶與銷售資訊</div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">客戶</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light" value="Lim Guan Eng" readonly>
+                                    <button class="btn btn-outline-secondary" type="button">選擇客戶</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">銷售人員</label>
+                                <select class="form-select"><option>Siti</option></select>
+                            </div>
+                             <div class="col-md-6">
+                                <label class="form-label">訂單日期</label>
+                                <input type="date" class="form-control" value="2025-08-05">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">預計交車日期</label>
+                                <input type="date" class="form-control">
+                            </div>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Sale Info -->
-                    <h5 class="mt-4">3. 銷售資訊</h5>
-                    <hr>
-                    <div class="row mb-3">
-                        <div class="col-md-4"><label>銷售日期</label><input type="date" class="form-control"></div>
-                        <div class="col-md-4"><label>銷售人員</label><select class="form-select"><option>David</option></select></div>
-                        <div class="col-md-4"><label>訂單狀態</label><select class="form-select"><option>已確認</option></select></div>
+                <!-- 訂單項目 -->
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>訂單項目</span>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addVehicleItemModal"><i class="bi bi-car-front me-1"></i>新增車輛</button>
+                            <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#addPartServiceItemModal"><i class="bi bi-tools me-1"></i>新增零件/服務</button>
+                        </div>
                     </div>
-
-                    <!-- Payments -->
-                    <h5 class="mt-4">4. 付款記錄</h5>
-                    <hr>
-                    <table class="table table-sm">
-                        <thead><tr><th>類型</th><th>金額</th><th>方式</th><th>收據號碼</th></tr></thead>
-                        <tbody><tr><td>訂金</td><td>5,000.00</td><td>銀行轉帳</td><td>R-2024-123</td></tr></tbody>
-                    </table>
-                    <button type="button" class="btn btn-secondary btn-sm" id="addPaymentBtn">+ 新增付款</button>
-
-                    <!-- Loan Application -->
-                    <h5 class="mt-4">5. 貸款申請</h5>
-                    <hr>
-                    <div class="row mb-3">
-                        <div class="col-md-4"><label>貸款金額</label><input type="text" class="form-control" value="103,000.00"></div>
-                        <div class="col-md-4"><label>金融公司</label><select class="form-select"><option>Maybank</option></select></div>
-                        <div class="col-md-4"><label>狀態</label><select class="form-select"><option>已提交</option></select></div>
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead><tr><th>項目描述</th><th>數量</th><th>單價</th><th>折扣</th><th>小計</th><th></th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>車輛:</strong> Proton X90 (VBE4567)</td>
+                                    <td>1</td>
+                                    <td>155,000.00</td>
+                                    <td><input type="number" class="form-control form-control-sm" value="2000"></td>
+                                    <td>153,000.00</td>
+                                    <td><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>服務:</strong> 全車鍍膜</td>
+                                    <td>1</td>
+                                    <td><input type="number" class="form-control form-control-sm" value="1500"></td>
+                                    <td><input type="number" class="form-control form-control-sm" value="0"></td>
+                                    <td>1,500.00</td>
+                                    <td><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <button type="button" class="btn btn-secondary btn-sm" id="editLoanBtn">+ 新增/編輯貸款</button>
+                </div>
 
-                    <div class="mt-4 text-end">
-                        <a href="sales_records.html" class="btn btn-secondary">取消</a>
-                        <a href="sales_records.html" class="btn btn-primary">儲存銷售</a>
+                <!-- Trade-in -->
+                <div class="card mb-4">
+                    <div class="card-header">舊車換購 (Trade-in)</div>
+                    <div class="card-body">
+                        <p class="text-muted">目前沒有 Trade-in 項目。</p>
+                        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addTradeInModal"><i class="bi bi-arrow-down-up me-2"></i>新增 Trade-in 車輛</button>
                     </div>
-                </form>
+                </div>
+
+                 <!-- 付款記錄 -->
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>付款記錄</span>
+                        <button class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#addPaymentModal"><i class="bi bi-plus-circle me-1"></i>新增付款</button>
+                    </div>
+                    <div class="table-responsive">
+                         <table class="table mb-0">
+                            <thead><tr><th>付款日期</th><th>付款方式</th><th>類型</th><th>金額</th><th>經手人</th><th></th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>2025-08-05</td>
+                                    <td>Bank Transfer</td>
+                                    <td>訂金</td>
+                                    <td>10,000.00</td>
+                                    <td>Siti</td>
+                                    <td><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 右側財務摘要 -->
+            <div class="col-lg-4">
+                <div class="card sticky-top">
+                    <div class="card-header"><h5 class="mb-0">財務摘要</h5></div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between"><span>小計</span><strong>156,500.00</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>折扣</span><strong>- 2,000.00</strong></li>
+                            <li class="list-group-item d-flex justify-content-between text-danger"><span>Trade-in</span><strong>- 0.00</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><h4>總計</h4><h4>154,500.00</h4></li>
+                            <li class="list-group-item d-flex justify-content-between text-success"><span>已付金額</span><strong>10,000.00</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><h3>應付餘額</h3><h3>144,500.00</h3></li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-grid">
+                            <a href="finance_loans.html" class="btn btn-info"><i class="bi bi-bank me-2"></i>管理貸款申請</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Add Payment Modal -->
-    <div class="modal fade" id="paymentModal" tabindex="-1">
-        <div class="modal-dialog">
+    <!-- Modals for Sale Detail Page -->
+
+    <!-- 1. 「新增車輛」彈窗 -->
+    <div class="modal fade" id="addVehicleItemModal" tabindex="-1" aria-labelledby="addVehicleItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
             <div class="modal-content">
-                <div class="modal-header"><h5 class="modal-title">新增付款</h5></div>
-                <div class="modal-body"><p>付款表單在此處。</p></div>
-                <div class="modal-footer"><button type="button" class="btn btn-primary">儲存</button></div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addVehicleItemModalLabel">選擇車輛加入訂單</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 搜尋區域 -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="搜尋車牌、底盤號、車型...">
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select"><option>所有品牌</option></select>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select"><option>所有類型</option><option>新車</option><option>二手車</option></select>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="number" class="form-control" placeholder="年份從">
+                                <span class="input-group-text">-</span>
+                                <input type="number" class="form-control" placeholder="年份到">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="number" class="form-control" placeholder="價格從 (RM)">
+                                <span class="input-group-text">-</span>
+                                <input type="number" class="form-control" placeholder="價格到 (RM)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 車輛選擇列表 -->
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>車牌號碼</th>
+                                    <th>品牌 & 型號</th>
+                                    <th>年份</th>
+                                    <th>顏色</th>
+                                    <th>類型</th>
+                                    <th>售價 (RM)</th>
+                                    <th>庫存天數</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="radio" name="selectedVehicle"></td>
+                                    <td>VBE1234</td>
+                                    <td><strong>Proton X70</strong></td>
+                                    <td>2024</td>
+                                    <td>白色</td>
+                                    <td><span class="badge bg-info">新車</span></td>
+                                    <td><span class="fw-bold text-primary">128,800</span></td>
+                                    <td><span class="badge bg-success">15</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#vehicleDetail1" aria-expanded="false">
+                                            詳情
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="collapse" id="vehicleDetail1">
+                                    <td colspan="9">
+                                        <div class="p-2 bg-light rounded">
+                                            <p class="mb-1"><strong>底盤號碼:</strong> ABCDEFGHIJKLM12345</p>
+                                            <p class="mb-1"><strong>引擎規格:</strong> 1500cc, Petrol, Automatic</p>
+                                            <p class="mb-1"><strong>入庫日期:</strong> 2025-07-25</p>
+                                            <p class="mb-1"><strong>成本價格:</strong> RM 110,000 (僅管理員可見)</p>
+                                            <p class="mb-0"><strong>備註:</strong> 無</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="radio" name="selectedVehicle"></td>
+                                    <td>WFG5678</td>
+                                    <td><strong>Honda Civic FE</strong></td>
+                                    <td>2022</td>
+                                    <td>黑色</td>
+                                    <td><span class="badge bg-secondary">二手車</span></td>
+                                    <td><span class="fw-bold text-primary">125,000</span></td>
+                                    <td><span class="badge bg-warning">48</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#vehicleDetail2" aria-expanded="false">
+                                            詳情
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="collapse" id="vehicleDetail2">
+                                    <td colspan="9">
+                                        <div class="p-2 bg-light rounded">
+                                            <p class="mb-1"><strong>底盤號碼:</strong> NOPQRSTUVWXYZ67890</p>
+                                            <p class="mb-1"><strong>引擎規格:</strong> 1800cc, Petrol, CVT</p>
+                                            <p class="mb-1"><strong>入庫日期:</strong> 2025-06-20</p>
+                                            <p class="mb-1"><strong>成本價格:</strong> RM 100,000 (僅管理員可見)</p>
+                                            <p class="mb-0"><strong>備註:</strong> 右後門有輕微刮痕。</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">確定添加</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Add Loan Modal -->
-    <div class="modal fade" id="loanModal" tabindex="-1">
-        <div class="modal-dialog">
+    <!-- 2. 「新增零件/服務」彈窗 -->
+    <div class="modal fade" id="addPartServiceItemModal" tabindex="-1" aria-labelledby="addPartServiceItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
             <div class="modal-content">
-                <div class="modal-header"><h5 class="modal-title">新增/編輯貸款</h5></div>
-                <div class="modal-body"><p>貸款表單在此處。</p></div>
-                <div class="modal-footer"><button type="button" class="btn btn-primary">儲存</button></div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPartServiceItemModalLabel">添加零件或服務</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs" id="partServiceTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="parts-tab" data-bs-toggle="tab" data-bs-target="#parts-pane" type="button" role="tab">零件銷售</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="maintenance-tab" data-bs-toggle="tab" data-bs-target="#maintenance-pane" type="button" role="tab">維修服務</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="insurance-tab" data-bs-toggle="tab" data-bs-target="#insurance-pane" type="button" role="tab">保險服務</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="other-tab" data-bs-toggle="tab" data-bs-target="#other-pane" type="button" role="tab">其他服務</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content p-3 border border-top-0" id="partServiceTabsContent">
+                        <!-- 零件銷售分頁 -->
+                        <div class="tab-pane fade show active" id="parts-pane" role="tabpanel">
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="搜尋零件號碼、名稱...">
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-select"><option>所有分類</option></select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-select"><option>所有庫存狀態</option><option>有庫存</option><option>庫存不足</option></select>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover table-striped mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>零件號碼</th>
+                                            <th>零件名稱</th>
+                                            <th>分類</th>
+                                            <th>現有庫存</th>
+                                            <th>售價 (RM)</th>
+                                            <th>數量</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>HW-1001</td>
+                                            <td><strong>Honda FE/FL1 Civic Oil Filter</strong></td>
+                                            <td>Filters</td>
+                                            <td><span class="badge bg-success">50</span></td>
+                                            <td>45.00</td>
+                                            <td><input type="number" class="form-control form-control-sm" value="1" min="1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>BW-2024</td>
+                                            <td><strong>Brake Pad Set - Front</strong></td>
+                                            <td>Brakes</td>
+                                            <td><span class="badge bg-warning">5</span></td>
+                                            <td>180.00</td>
+                                            <td><input type="number" class="form-control form-control-sm" value="1" min="1"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- 維修服務分頁 -->
+                        <div class="tab-pane fade" id="maintenance-pane" role="tabpanel">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-striped mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>服務名稱</th>
+                                            <th>預估時間 (小時)</th>
+                                            <th>標準價格 (RM)</th>
+                                            <th>服務說明</th>
+                                            <th>實際價格 (RM)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td><strong>Basic Service</strong></td>
+                                            <td>2.0</td>
+                                            <td>150.00</td>
+                                            <td>Oil change, filter replacement, basic inspection</td>
+                                            <td><input type="number" class="form-control form-control-sm" value="150.00"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td><strong>Brake Service</strong></td>
+                                            <td>3.0</td>
+                                            <td>250.00</td>
+                                            <td>Brake inspection, pad/disc replacement</td>
+                                            <td><input type="number" class="form-control form-control-sm" value="250.00"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- 保險服務分頁 -->
+                        <div class="tab-pane fade" id="insurance-pane" role="tabpanel">
+                            <form class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">保險公司*</label>
+                                    <select class="form-select" required><option>Allianz Malaysia</option><option>Great Eastern</option></select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">保險類型*</label>
+                                    <select class="form-select" required><option>Comprehensive</option><option>Third Party</option></select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">保險金額 (RM)*</label>
+                                    <input type="number" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">保障開始日期</label>
+                                    <input type="date" class="form-control" value="2025-08-08">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">保障結束日期</label>
+                                    <input type="date" class="form-control" value="2026-08-08">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">備註</label>
+                                    <textarea class="form-control" rows="2"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- 其他服務分頁 -->
+                        <div class="tab-pane fade" id="other-pane" role="tabpanel">
+                            <form class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">服務名稱*</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">服務類別</label>
+                                    <select class="form-select"><option>登記</option><option>驗車</option><option>其他</option></select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">服務價格 (RM)*</label>
+                                    <input type="number" class="form-control" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">服務說明</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">添加選中項目</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/scripts.js"></script>
-    
+    <!-- 3. 「新增 Trade-in 車輛」彈窗 -->
+    <div class="modal fade" id="addTradeInModal" tabindex="-1" aria-labelledby="addTradeInModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addTradeInModalLabel">添加換購車輛 (Trade-in)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <h6>車輛基本資訊</h6>
+                        <hr>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-4"><label class="form-label">車牌號碼*</label><input type="text" class="form-control" required></div>
+                            <div class="col-md-4"><label class="form-label">底盤號碼*</label><input type="text" class="form-control" required></div>
+                            <div class="col-md-4"><label class="form-label">品牌*</label><select class="form-select" required><option>Honda</option><option>Toyota</option></select></div>
+                            <div class="col-md-4"><label class="form-label">型號*</label><input type="text" class="form-control" required></div>
+                            <div class="col-md-4"><label class="form-label">年份*</label><input type="number" class="form-control" required></div>
+                            <div class="col-md-4"><label class="form-label">顏色</label><input type="text" class="form-control"></div>
+                            <div class="col-md-4"><label class="form-label">引擎容量 (CC)</label><input type="number" class="form-control"></div>
+                            <div class="col-md-4"><label class="form-label">燃油類型</label><select class="form-select"><option>Petrol</option></select></div>
+                            <div class="col-md-4"><label class="form-label">變速箱</label><select class="form-select"><option>Automatic</option></select></div>
+                        </div>
+
+                        <h6>車輛狀況評估</h6>
+                        <hr>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-4"><label class="form-label">目前里程 (KM)*</label><input type="number" class="form-control" required></div>
+                            <div class="col-md-4"><label class="form-label">車況評級*</label><select class="form-select" required><option>A+</option><option>A</option></select></div>
+                            <div class="col-md-4"><label class="form-label">車主數量</label><input type="number" class="form-control"></div>
+                            <div class="col-md-4"><label class="form-label">事故記錄</label><select class="form-select"><option>無</option><option>輕微</option><option>嚴重</option></select></div>
+                            <div class="col-md-4"><label class="form-label">保養記錄</label><select class="form-select"><option>完整</option><option>部分</option><option>缺失</option></select></div>
+                        </div>
+
+                        <h6>財務資訊</h6>
+                        <hr>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6"><label class="form-label">評估價值 (RM)*</label><input type="number" class="form-control" required></div>
+                            <div class="col-md-6"><label class="form-label">換購折抵價 (RM)*</label><input type="number" class="form-control" required></div>
+                            <div class="col-md-6"><label class="form-label">未清貸款 (RM)</label><input type="number" class="form-control"></div>
+                            <div class="col-md-6"><label class="form-label">預估修復費用 (RM)</label><input type="number" class="form-control"></div>
+                        </div>
+
+                        <h6>前車主資訊 (選填)</h6>
+                        <hr>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-4"><label class="form-label">前車主姓名</label><input type="text" class="form-control"></div>
+                            <div class="col-md-4"><label class="form-label">前車主IC</label><input type="text" class="form-control"></div>
+                            <div class="col-md-4"><label class="form-label">聯絡電話</label><input type="tel" class="form-control"></div>
+                        </div>
+
+                        <h6>備註說明</h6>
+                        <hr>
+                        <div class="mb-3">
+                            <label class="form-label">車況備註</label>
+                            <textarea class="form-control" rows="2"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">內部備註</label>
+                            <textarea class="form-control" rows="2"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">確定添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. 「新增付款」彈窗 -->
+    <div class="modal fade" id="addPaymentModal" tabindex="-1" aria-labelledby="addPaymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPaymentModalLabel">記錄客戶付款</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <h6>付款基本資訊</h6>
+                        <hr>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">付款金額 (RM)*</label>
+                                <input type="number" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">付款日期*</label>
+                                <input type="date" class="form-control" value="2025-08-08" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">付款類型*</label>
+                                <select class="form-select" required>
+                                    <option>訂金</option>
+                                    <option>部分付款</option>
+                                    <option>尾款</option>
+                                    <option>退款</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">付款方式*</label>
+                                <select class="form-select" id="paymentMethodSelect" required>
+                                    <option value="cash">現金</option>
+                                    <option value="bank_transfer">銀行轉帳</option>
+                                    <option value="credit_card">信用卡</option>
+                                    <option value="cheque">支票</option>
+                                    <option value="online_banking">網路銀行</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">收款人員*</label>
+                                <select class="form-select" required><option>Siti</option><option>John</option></select>
+                            </div>
+                        </div>
+
+                        <!-- 銀行轉帳額外欄位 -->
+                        <div id="bankTransferFields" class="row g-3 mb-3" style="display: none;">
+                            <h6>銀行轉帳資訊</h6>
+                            <hr>
+                            <div class="col-md-6"><label class="form-label">轉帳銀行</label><input type="text" class="form-control"></div>
+                            <div class="col-md-6"><label class="form-label">轉帳參考號</label><input type="text" class="form-control"></div>
+                        </div>
+
+                        <!-- 信用卡額外欄位 -->
+                        <div id="creditCardFields" class="row g-3 mb-3" style="display: none;">
+                            <h6>信用卡資訊</h6>
+                            <hr>
+                            <div class="col-md-6"><label class="form-label">卡片末四碼</label><input type="text" class="form-control"></div>
+                            <div class="col-md-6"><label class="form-label">授權碼</label><input type="text" class="form-control"></div>
+                        </div>
+
+                        <!-- 支票額外欄位 -->
+                        <div id="chequeFields" class="row g-3 mb-3" style="display: none;">
+                            <h6>支票資訊</h6>
+                            <hr>
+                            <div class="col-md-4"><label class="form-label">支票號碼*</label><input type="text" class="form-control"></div>
+                            <div class="col-md-4"><label class="form-label">支票銀行*</label><input type="text" class="form-control"></div>
+                            <div class="col-md-4"><label class="form-label">支票日期*</label><input type="date" class="form-control"></div>
+                        </div>
+
+                        <h6>收據與備註</h6>
+                        <hr>
+                        <div class="mb-3">
+                            <label class="form-label">收據號碼</label>
+                            <input type="text" class="form-control" placeholder="自動生成或手動輸入">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">備註</label>
+                            <textarea class="form-control" rows="2"></textarea>
+                        </div>
+
+                        <h6>付款摘要</h6>
+                        <hr>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item d-flex justify-content-between"><span>訂單總額:</span><strong>RM 154,500.00</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>已收金額:</span><strong>RM 10,000.00</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>本次付款:</span><strong>RM <span id="currentPaymentAmount">0.00</span></strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><h4>剩餘金額:</h4><h4>RM <span id="remainingAmount">144,500.00</span></h4></li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">確認收款</button>
+                    <button type="button" class="btn btn-outline-primary"><i class="bi bi-printer me-2"></i>列印收據</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/load-navbar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Payment Method conditional fields logic
+            const paymentMethodSelect = document.getElementById('paymentMethodSelect');
+            const bankTransferFields = document.getElementById('bankTransferFields');
+            const creditCardFields = document.getElementById('creditCardFields');
+            const chequeFields = document.getElementById('chequeFields');
+
+            function togglePaymentFields() {
+                bankTransferFields.style.display = 'none';
+                creditCardFields.style.display = 'none';
+                chequeFields.style.display = 'none';
+
+                switch (paymentMethodSelect.value) {
+                    case 'bank_transfer':
+                    case 'online_banking':
+                        bankTransferFields.style.display = 'flex';
+                        break;
+                    case 'credit_card':
+                        creditCardFields.style.display = 'flex';
+                        break;
+                    case 'cheque':
+                        chequeFields.style.display = 'flex';
+                        break;
+                }
+            }
+
+            paymentMethodSelect.addEventListener('change', togglePaymentFields);
+            togglePaymentFields(); // Initial call to set correct state
+        });
+    </script>
 </body>
 </html>
